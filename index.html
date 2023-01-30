@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DSViaCep</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <h1>DSViaCep</h1>
-            <div>Contato</div>
-        </nav>
+      <nav>
+        <h1>DSViaCep</h1>
+        <div>Contato</div>
+      </nav>
     </header>
     <main>
-        <section id="form-section">
-
-        </section>
-        <section id="list-section">
+      <section id="form-section">
+        <div>
+          <form action="newAddress">
             <div>
-                <h3>São Paulo</h3>
-                <p>Rua dos Jardins, 720</p>
-                <p>11200-345</p>
+              <label for="cep">CEP:</label>
+              <input name="cep" id="cep" type="text" placeholder="CEP" />
             </div>
             <div>
-                <h3>São Paulo</h3>
-                <p>Rua dos Jardins, 720</p>
-                <p>11200-345</p>
+              <label for="street">Logradouro:</label>
+              <inputb name="street" id="cep" type="text" placeholder="Logradouro"
+              />
             </div>
-
-        </section>
+            <div>
+              <label for="number">Número:</label>
+              <input name="number" id="cep" type="text" placeholder="Número" />
+            </div>
+            <div>
+              <label for="cidade">Cidade:</label>
+              <input name="cidade" id="cep" type="text" placeholder="Cidade" />
+            </div>
+            <div>
+                <button type="submit">Salvar</button>
+                <button>Limpar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section id="list-section">
+        <div>
+          <h3>São Paulo</h3>
+          <p>Rua dos Jardins, 720</p>
+          <p>11200-345</p>
+        </div>
+        <div>
+          <h3>São Paulo</h3>
+          <p>Rua dos Jardins, 720</p>
+          <p>11200-345</p>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>
