@@ -1,6 +1,11 @@
+import Address from "../models/address.js";
+
 
 // Guardar informações relevantes do modulo
 function State() {
+
+    this.address = new Address();
+
     this.btnSave = null;
     this.btnClear = null;
 
