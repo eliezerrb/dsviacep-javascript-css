@@ -35,6 +35,7 @@ export function init() {
 
     // Chamando função para tratar o evento de mudança do campo number
     state.inputNumber.addEventListener('change', handleInputNumberChange);
+    state.btnClear.addEventListener('click', handleBtnClearClick);
 
 }
 
@@ -48,6 +49,23 @@ function handleInputNumberChange(event){
     }
 }
 
+// Função para tratar o evento click do botão limpar
+function handleBtnClearClick(event) {
+    event.preventDefault();
+    clearForm();   
+}
+
+function clearForm() {
+    state.inputCep.value = "";
+    state.inputCity.value = "";
+    state.inputNumber.value = "";
+    state.inputStreet.value = "";
+
+    setFormError("cep", "");
+    setFormError("number", "");
+
+    state.inputCep.focus();
+}
 
 // Função para incluir label de erro no elemento
 function setFormError(key, value){
