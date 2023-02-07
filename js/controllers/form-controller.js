@@ -32,10 +32,15 @@ export function init() {
   state.errorNumber = document.querySelector('[data-error="number"]');
 
   // Chamando função para tratar o evento de mudança do campo number
-  state.inputNumber.addEventListener("change", handleInputNumberChange);
-  state.btnClear.addEventListener("click", handleBtnClearClick);
-  state.btnSave.addEventListener("click", handleBtnSaveClick);
-  state.inputCep.addEventListener("change", handleImputCepChange);
+  state.inputNumber.addEventListener('change', handleInputNumberChange);
+  state.inputNumber.addEventListener('keyup', handleInputNumberKeyup);
+  state.btnClear.addEventListener('click', handleBtnClearClick);
+  state.btnSave.addEventListener('click', handleBtnSaveClick);
+  state.inputCep.addEventListener('change', handleImputCepChange);
+}
+
+function handleInputNumberKeyup(event) {
+ state.address.number = event.target.value;
 }
 
 async function handleImputCepChange(event) {
@@ -60,7 +65,7 @@ async function handleImputCepChange(event) {
 
 async function handleBtnSaveClick(event) {
   event.preventDefault();
-  console.log(event.target);
+  console.log(state.address);
 }
 
 // Função para tratar o evento de mudança do campo number
