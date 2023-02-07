@@ -1,5 +1,6 @@
 import Address from "../models/address.js";
 import * as addressServices from "../services/address-service.js";
+import * as listController from './list-controller.js'
 
 // Guardar informações relevantes do modulo
 function State() {
@@ -65,7 +66,7 @@ async function handleImputCepChange(event) {
 
 async function handleBtnSaveClick(event) {
   event.preventDefault();
-  console.log(state.address);
+  listController.addCard(state.address);
 }
 
 // Função para tratar o evento de mudança do campo number
