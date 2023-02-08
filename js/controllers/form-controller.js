@@ -1,6 +1,6 @@
 import Address from "../models/address.js";
 import * as addressServices from "../services/address-service.js";
-import * as listController from './list-controller.js'
+import * as listController from "./list-controller.js";
 
 // Guardar informações relevantes do modulo
 function State() {
@@ -33,15 +33,15 @@ export function init() {
   state.errorNumber = document.querySelector('[data-error="number"]');
 
   // Chamando função para tratar o evento de mudança do campo number
-  state.inputNumber.addEventListener('change', handleInputNumberChange);
-  state.inputNumber.addEventListener('keyup', handleInputNumberKeyup);
-  state.btnClear.addEventListener('click', handleBtnClearClick);
-  state.btnSave.addEventListener('click', handleBtnSaveClick);
-  state.inputCep.addEventListener('change', handleImputCepChange);
+  state.inputNumber.addEventListener("change", handleInputNumberChange);
+  state.inputNumber.addEventListener("keyup", handleInputNumberKeyup);
+  state.btnClear.addEventListener("click", handleBtnClearClick);
+  state.btnSave.addEventListener("click", handleBtnSaveClick);
+  state.inputCep.addEventListener("change", handleImputCepChange);
 }
 
 function handleInputNumberKeyup(event) {
- state.address.number = event.target.value;
+  state.address.number = event.target.value;
 }
 
 async function handleImputCepChange(event) {
@@ -64,9 +64,27 @@ async function handleImputCepChange(event) {
   }
 }
 
-async function handleBtnSaveClick(event) {
+function handleBtnSaveClick(event) {
   event.preventDefault();
-  listController.addCard(state.address);
+
+  const errors = addressServices.getErrors(state.address);
+
+  // Cria array com os campos do objeto passado
+  const keys = Object.keys(errors);
+
+  if (keys.length > 0) {
+    keys.forEach((key) => {
+      setFormError(key, errors[key]);
+    });
+
+    // Forma classica de percorrer o vetor
+    //  for (let i = 0; i < keys.length; i++) {
+    //    setFormError(keys[i], errors[keys[i]]);
+    //  }
+  } else {
+    listController.addCard(state.address);
+    clearForm;
+  }
 }
 
 // Função para tratar o evento de mudança do campo number
@@ -92,6 +110,8 @@ function clearForm() {
 
   setFormError("cep", "");
   setFormError("number", "");
+
+  state.address = new address();
 
   state.inputCep.focus();
 }
